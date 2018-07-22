@@ -1,4 +1,6 @@
 import assets/index as assets
+import simplegui
+import math
 
 def get_asset(name):
   return assets.get(name)
@@ -44,7 +46,7 @@ class asteroid:
   def update(self):
     self.size+=self.speed
     
-class bullet(self):
+class bullet:
   def __init__(self, pos, size):
     self.pos=pos
     self.size=size

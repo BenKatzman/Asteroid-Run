@@ -1,6 +1,6 @@
 from flask import Flask
 
-players=[]
+players = []
 user1 = []
 user2 = []
 
@@ -36,14 +36,15 @@ def recieve(u):
                     return i+','
     elif u == '2':
         if len(user2) == 1:
-            return user1[0]
+            return user2[0]
         elif len(user2) > 1:
             for i in user2:
                 if user2.index(i) == len(user2):
                     return i
                 else:
                     return i+','
-    
+
+
 
 if __name__ == '__main__':
     app.run(port=8080)

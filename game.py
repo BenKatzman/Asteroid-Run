@@ -1,11 +1,35 @@
 import assets/index as assets
-import simplegui
+import simpleguitk as simplegui
 import math
 import random
+import urllib2
+
+#Do not delete lines 7 to 32. 
+identification = None
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+  return ''.join(random.choice(chars) for _ in range(size))
+
+username= id_generator()
 
 def get_asset(name):
   return assets.get(name)
 
+def start():
+  global identification
+  identification = '192.168.1.4/start/'+username).read()
+
+def send(identification, data):
+  if urllib.urlopen('192.168.1.4/send/'+identification+'/'+data).read() == 'Done':
+    return True
+  else:
+    return False
+
+def recieve(identification):
+  if not urllib.urlopen('192.168.1.4/recieve/'+identification).read() == '':
+    return urllib.urlopen('192.168.1.4/recieve/'+identification).read()
+  else:
+    return False
 
 BULLET_SPEED=0
 asteroid_list=[]

@@ -17,17 +17,17 @@ def get_asset(name):
 
 def start():
   global identification
-  identification = '192.168.1.4/start/'+username).read()
+  identification = '192.168.1.4:8080/start/'+username).read()
 
 def send(identification, data):
-  if urllib.urlopen('192.168.1.4/send/'+identification+'/'+data).read() == 'Done':
+  if urllib.urlopen('192.168.1.4:8080/send/'+identification+'/'+data).read() == 'Done':
     return True
   else:
     return False
 
 def recieve(identification):
-  if not urllib.urlopen('192.168.1.4/recieve/'+identification).read() == '':
-    return urllib.urlopen('192.168.1.4/recieve/'+identification).read()
+  if not urllib.urlopen('192.168.1.4:8080/recieve/'+identification).read() == '':
+    return urllib.urlopen('192.168.1.4:8080/recieve/'+identification).read()
   else:
     return False
 
